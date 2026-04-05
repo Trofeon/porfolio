@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Trofeón - Portafolio</title>
+  <meta name="description" content="Portafolio de trofeos de Trofeón.">
+  <meta name="keywords" content="trofeos, portfolio, portafolio">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  
+  <style>
+    .btn-ghost {
+      color: var(--heading-color);
+      background: transparent;
+      border: 2px solid var(--heading-color);
+      border-radius: 0;
+      padding: 10px 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn-ghost:hover {
+      background: var(--heading-color);
+      color: var(--contrast-color);
+    }
+    
+    .header.dark-header {
+      --background-color: #041E42;
+      --nav-color: #ffffff;
+      --heading-color: #ffffff;
+    }
+    .header.dark-header .btn-getstarted {
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+    }
+    .header.dark-header .btn-getstarted:hover {
+      background-color: #ffffff !important;
+      color: #041E42 !important;
+    }
+
+    /* Estilos del portafolio */
+    .portfolio-page-header {
+      background-color: #f8f9fa;
+      padding: 100px 0 60px 0;
+      text-align: center;
+      margin-top: 80px; /* Offset for fixed header */
+    }
+
+    .portfolio-page-header h1 {
+      font-weight: 700;
+      color: #041E42;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .portfolio-filters {
+      padding: 0;
+      margin: 0 auto 40px auto;
+      list-style: none;
+      text-align: center;
+    }
+
+    .portfolio-filters li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 8px 20px;
+      font-size: 15px;
+      margin: 0 5px;
+      color: #444;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .portfolio-filters li:hover,
+    .portfolio-filters li.filter-active {
+      color: #0077B6;
+      border-color: #0077B6;
+    }
+
+    .portfolio-item {
+      margin-bottom: 30px;
+    }
+
+    .portfolio-wrap {
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .portfolio-wrap img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .portfolio-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(4, 30, 66, 0.9);
+      padding: 20px 15px;
+      color: #fff;
+      opacity: 0;
+      transition: 0.3s;
+      transform: translateY(100%);
+      text-align: center;
+    }
+
+    .portfolio-wrap:hover .portfolio-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-info h4 {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .portfolio-info a {
+      color: #fff;
+      font-size: 24px;
+      background: #0077B6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .portfolio-info a:hover {
+      background: #fff;
+      color: #0077B6;
+    }
+
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header dark-header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo.png" alt="Trofeón Logo" style="max-height: 40px;">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Inicio</a></li>
+          <li><a href="index.html#trofeus">Trofeos</a></li>
+          <li><a href="index.html#projetos">Proyectos</a></li>
+          <li><a href="portfolio.html" class="active">Portafolio</a></li>
+          <li><a href="index.html#contato">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#contato">¡Solicitar presupuesto!</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="portfolio-page-header" data-aos="fade-up">
+      <div class="container">
+        <h1>Nuestro Portafolio</h1>
+        <p class="lead">Explora nuestra colección de proyectos y trofeos personalizados</p>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section py-5">
+      <div class="container" data-aos="fade-up">
+        
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">Todos</li>
+            <li data-filter=".filter-exclusivos">Trofeos Exclusivos</li>
+            <li data-filter=".filter-catalogo">Catálogo Produteca</li>
+            <li data-filter=".filter-3d">Impresión 3D</li>
+          </ul>
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Item 1 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-exclusivos">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Trofeo Destaque</h4>
+                  <a href="assets/img/portfolio/portfolio-1.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Destaque"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+
+            <!-- Item 2 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-catalogo">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-1.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Trofeo Catálogo A</h4>
+                  <a href="assets/img/portfolio/portfolio-portrait-1.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Catálogo A"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+
+            <!-- Item 3 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-3d">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Proyecto Impresión 3D</h4>
+                  <a href="assets/img/portfolio/portfolio-3.webp" data-gallery="portfolio-gallery" class="glightbox" title="Proyecto Impresión 3D"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+
+            <!-- Item 4 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-exclusivos">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Trofeo Exclusivo Oro</h4>
+                  <a href="assets/img/portfolio/portfolio-4.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Exclusivo Oro"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+
+            <!-- Item 5 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-catalogo">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-2.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Trofeo Catálogo B</h4>
+                  <a href="assets/img/portfolio/portfolio-portrait-2.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Catálogo B"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+
+            <!-- Item 6 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-3d">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-7.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Modelado 3D Especial</h4>
+                  <a href="assets/img/portfolio/portfolio-7.webp" data-gallery="portfolio-gallery" class="glightbox" title="Modelado 3D Especial"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+            
+            <!-- Item 7 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-exclusivos">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-8.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Trofeo Corporativo</h4>
+                  <a href="assets/img/portfolio/portfolio-8.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Corporativo"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+            
+            <!-- Item 8 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-catalogo">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Trofeo Catálogo C</h4>
+                  <a href="assets/img/portfolio/portfolio-10.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Catálogo C"><i class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div><!-- End Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer" style="--background-color: #000; --default-color:#fff;">
+    <div class="container copyright text-center py-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Trofeón</strong> <span>Todos los derechos reservados</span></p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <!-- <div id="preloader"></div>  (Optional, removed for better portfolio loading experience initially) -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
