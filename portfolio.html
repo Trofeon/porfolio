@@ -1,345 +1,520 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Trofeón - Portafolio</title>
-  <meta name="description" content="Portafolio de trofeos de Trofeón.">
-  <meta name="keywords" content="trofeos, portfolio, portafolio">
+  <title>Trofeón - Diseño de Trofeos Premium e Impresión 3D</title>
+  <meta name="description" content="Trofeos personalizados premium e impresión 3D. Inmortaliza la marca, club o evento del cliente con piezas exclusivas y corporativas de alta gama.">
+  
+  <link href="assets/img/logo.png" rel="icon">
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
+  <!-- Bootstrap CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  
   <style>
-    .btn-ghost {
-      color: var(--heading-color);
-      background: transparent;
-      border: 2px solid var(--heading-color);
-      border-radius: 0;
-      padding: 10px 30px;
+    /* =========================================================================
+       DESIGN TOKENS & SYSTEM (TROFEÓN PREMIUM)
+       ========================================================================= */
+    :root {
+      --navy-900: #050B14;
+      --navy-800: #0A1128;
+      --navy-700: #131F3A;
+      
+      --gold-primary: #D4AF37;
+      --gold-hover: #E3C153;
+      --gold-gradient: linear-gradient(135deg, #F0E68C 0%, #D4AF37 50%, #997A15 100%);
+      
+      --text-main: #F8F9FA;
+      --text-muted: #9CA3AF;
+      
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      
+      --transition-core: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      
+      --space-4: 4px; --space-8: 8px; --space-16: 16px; --space-24: 24px;
+      --space-32: 32px; --space-64: 64px; --space-128: 128px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--navy-900);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-main);
+    }
+
+    ::selection { background: var(--gold-primary); color: var(--navy-900); }
+
+    /* =========================================================================
+       COMPONENTS
+       ========================================================================= */
+    .btn-premium {
+      background: var(--gold-gradient);
+      color: var(--navy-900);
       font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 4px;
       text-transform: uppercase;
-      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      transition: var(--transition-core);
       display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+    .btn-premium:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      color: var(--navy-900);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 15px 32px;
+      border: 1px solid var(--glass-border);
+      border-radius: 4px;
+      transition: var(--transition-core);
+      display: inline-block;
+      text-decoration: none;
     }
     .btn-ghost:hover {
-      background: var(--heading-color);
-      color: var(--contrast-color);
-    }
-    
-    .header.dark-header {
-      --background-color: #041E42;
-      --nav-color: #ffffff;
-      --heading-color: #ffffff;
-    }
-    .header.dark-header .btn-getstarted {
-      color: #ffffff !important;
-      border-color: #ffffff !important;
-    }
-    .header.dark-header .btn-getstarted:hover {
-      background-color: #ffffff !important;
-      color: #041E42 !important;
+      background: var(--glass-bg);
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
     }
 
-    /* Estilos del portafolio */
-    .portfolio-page-header {
-      background-color: #f8f9fa;
-      padding: 100px 0 60px 0;
-      text-align: center;
-      margin-top: 80px; /* Offset for fixed header */
+    /* =========================================================================
+       NAVIGATION
+       ========================================================================= */
+    .top-bar {
+      background-color: var(--navy-900);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 8px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
+    .top-bar a { color: var(--text-muted); text-decoration: none; transition: var(--transition-core); margin-left: 15px; }
+    .top-bar a:hover { color: var(--gold-primary); }
 
-    .portfolio-page-header h1 {
-      font-weight: 700;
-      color: #041E42;
-      font-size: 3rem;
-      margin-bottom: 20px;
+    .navbar {
+      background-color: rgba(5, 11, 20, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: clamp(15px, 2vw, 25px) 0;
     }
-    
-    .portfolio-filters {
-      padding: 0;
-      margin: 0 auto 40px auto;
-      list-style: none;
-      text-align: center;
-    }
-
-    .portfolio-filters li {
-      cursor: pointer;
-      display: inline-block;
-      padding: 8px 20px;
-      font-size: 15px;
-      margin: 0 5px;
-      color: #444;
-      border-bottom: 2px solid transparent;
-      transition: all 0.3s ease-in-out;
+    .navbar-brand img { max-height: 40px; filter: brightness(0) invert(1); }
+    .nav-link {
+      color: var(--text-muted) !important;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .portfolio-filters li:hover,
-    .portfolio-filters li.filter-active {
-      color: #0077B6;
-      border-color: #0077B6;
-    }
-
-    .portfolio-item {
-      margin-bottom: 30px;
-    }
-
-    .portfolio-wrap {
-      transition: 0.3s;
+      margin: 0 12px;
+      transition: var(--transition-core);
       position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
-
-    .portfolio-wrap img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .portfolio-wrap:hover img {
-      transform: scale(1.05);
-    }
-
-    .portfolio-info {
+    .nav-link::after {
+      content: '';
       position: absolute;
+      width: 0%;
+      height: 1px;
       bottom: 0;
       left: 0;
-      right: 0;
-      background: rgba(4, 30, 66, 0.9);
-      padding: 20px 15px;
-      color: #fff;
-      opacity: 0;
-      transition: 0.3s;
-      transform: translateY(100%);
-      text-align: center;
+      background-color: var(--gold-primary);
+      transition: var(--transition-core);
     }
+    .nav-link:hover, .nav-link.active { color: var(--text-main) !important; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-    .portfolio-wrap:hover .portfolio-info {
-      opacity: 1;
-      transform: translateY(0);
+    /* =========================================================================
+       HERO SECTION
+       ========================================================================= */
+    .hero-section {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle at 70% 50%, var(--navy-700) 0%, var(--navy-900) 60%);
+      padding-top: 100px;
     }
-
-    .portfolio-info h4 {
-      font-size: 18px;
-      color: #fff;
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--gold-primary);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-24);
+    }
+    .hero-title {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 1.1;
       font-weight: 600;
-      margin-bottom: 15px;
+      margin-bottom: var(--space-24);
     }
-    
-    .portfolio-info a {
-      color: #fff;
-      font-size: 24px;
-      background: #0077B6;
-      display: inline-flex;
+    .hero-title span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: var(--space-32);
+      font-weight: 300;
+    }
+    .hero-img-container {
+      position: relative;
+      height: 550px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+    }
+    .glow-circle {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      z-index: -1;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* =========================================================================
+       MODALIDADES (CATALOGO VS EXCLUSIVOS)
+       ========================================================================= */
+    .services-split {
+      padding: var(--space-128) 0;
+      background: var(--navy-800);
+      position: relative;
+    }
+    .service-card {
+      background: var(--navy-900);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: var(--space-64) var(--space-32);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-core);
+      overflow: hidden;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .service-card-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: var(--space-32);
+      transition: var(--transition-core);
+    }
+    .service-card:hover .service-card-img {
+      transform: scale(1.03);
+    }
+    .service-card h3 { font-size: 2rem; margin-bottom: var(--space-16); }
+    .service-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      border-radius: 4px;
+      margin-bottom: var(--space-24);
+    }
+    .service-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: var(--space-32);
+      flex-grow: 1;
+    }
+    .service-list li {
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .service-list li i {
+      color: var(--gold-primary);
+      margin-right: 12px;
+      font-size: 1.2rem;
+    }
+
+    /* =========================================================================
+       QUEM SOMOS / VALUE PROPOSITION
+       ========================================================================= */
+    .about-section {
+      padding: var(--space-128) 0;
+      text-align: center;
+      background: var(--navy-900);
+      border-top: 1px solid var(--glass-border);
+    }
+    .about-heading {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      max-width: 900px;
+      margin: 0 auto var(--space-32) auto;
+      line-height: 1.2;
+    }
+    .about-text {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* =========================================================================
+       BENEFICIOS / PILARES
+       ========================================================================= */
+    .benefits-section {
+      padding: var(--space-128) 0;
+      background: var(--navy-800);
+    }
+    .benefit-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--space-64);
+      background: var(--navy-900);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .benefit-row.reverse { flex-direction: row-reverse; }
+    .benefit-img {
+      width: 50%;
+      height: 400px;
+      background: var(--navy-700);
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      transition: 0.3s;
+    }
+    .benefit-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+    .benefit-content {
+      width: 50%;
+      padding: var(--space-64);
+    }
+    @media (max-width: 991px) {
+      .benefit-row, .benefit-row.reverse { flex-direction: column; }
+      .benefit-img, .benefit-content { width: 100%; }
+      .benefit-img { height: 300px; }
+      .benefit-content { padding: var(--space-32); }
     }
 
-    .portfolio-info a:hover {
-      background: #fff;
-      color: #0077B6;
+    /* =========================================================================
+       PORTFOLIO & SOCIAL PROOF
+       ========================================================================= */
+    .portfolio-section {
+      padding: var(--space-128) 0;
+      background: var(--navy-900);
+      text-align: center;
     }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: var(--space-64);
+      margin-bottom: var(--space-64);
+    }
+    .portfolio-item {
+      position: relative;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      cursor: pointer;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .portfolio-item:hover img { transform: scale(1.05); }
 
+    /* =========================================================================
+       BOTTOM CTA
+       ========================================================================= */
+    .cta-final {
+      padding: 150px 0;
+      text-align: center;
+      background: linear-gradient(0deg, var(--navy-800) 0%, var(--navy-900) 100%);
+      border-top: 1px solid var(--glass-border);
+    }
+    .cta-title { font-size: 3.5rem; margin-bottom: var(--space-32); }
+
+    /* =========================================================================
+       FOOTER
+       ========================================================================= */
+    .footer {
+      background: var(--navy-800);
+      padding: var(--space-64) 0 var(--space-32);
+      border-top: 1px solid var(--glass-border);
+    }
+    .footer-col h5 { color: white; font-size: 1.1rem; margin-bottom: var(--space-24); font-weight: 500; }
+    .footer-col ul { list-style: none; padding: 0; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; transition: var(--transition-core); font-size: 0.9rem; }
+    .footer-col a:hover { color: var(--gold-primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--glass-border);
+      padding-top: var(--space-32);
+      margin-top: var(--space-32);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 
-<body class="portfolio-page">
+<body>
 
-  <header id="header" class="header dark-header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.png" alt="Trofeón Logo" style="max-height: 40px;">
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#hero">Inicio</a></li>
-          <li><a href="index.html#trofeus">Trofeos</a></li>
-          <li><a href="index.html#projetos">Proyectos</a></li>
-          <li><a href="portfolio.html" class="active">Portafolio</a></li>
-          <li><a href="index.html#contato">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#contato">¡Solicitar presupuesto!</a>
-
+  <!-- Top Bar -->
+  <div class="top-bar d-none d-lg-block">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <span><i class="bi bi-geo-alt text-warning"></i> Dos Hermanas, Sevilla</span>
+        <span class="ms-4"><i class="bi bi-telephone text-warning"></i> +34 600 000 000</span>
+      </div>
+      <div>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <main class="main">
-
-    <section class="portfolio-page-header" data-aos="fade-up">
-      <div class="container">
-        <h1>Nuestro Portafolio</h1>
-        <p class="lead">Explora nuestra colección de proyectos y trofeos personalizados</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo.png" alt="Trofeón Logo">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="portfolioDropdown" role="button" data-bs-toggle="dropdown">Portafolio</a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="portfolio.html">Trofeos Exclusivos</a></li>
+              <li><a class="dropdown-item" href="catalogo.html">Catálogo Trofeón</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="quienes-somos.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section py-5">
-      <div class="container" data-aos="fade-up">
-        
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Todos</li>
-            <li data-filter=".filter-exclusivos">Trofeos Exclusivos</li>
-            <li data-filter=".filter-catalogo">Catálogo Produteca</li>
-            <li data-filter=".filter-3d">Impresión 3D</li>
-          </ul>
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <!-- Item 1 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-exclusivos">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Trofeo Destaque</h4>
-                  <a href="assets/img/portfolio/portfolio-1.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Destaque"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-
-            <!-- Item 2 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-catalogo">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-portrait-1.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Trofeo Catálogo A</h4>
-                  <a href="assets/img/portfolio/portfolio-portrait-1.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Catálogo A"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-
-            <!-- Item 3 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-3d">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Proyecto Impresión 3D</h4>
-                  <a href="assets/img/portfolio/portfolio-3.webp" data-gallery="portfolio-gallery" class="glightbox" title="Proyecto Impresión 3D"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-
-            <!-- Item 4 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-exclusivos">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Trofeo Exclusivo Oro</h4>
-                  <a href="assets/img/portfolio/portfolio-4.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Exclusivo Oro"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-
-            <!-- Item 5 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-catalogo">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-portrait-2.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Trofeo Catálogo B</h4>
-                  <a href="assets/img/portfolio/portfolio-portrait-2.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Catálogo B"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-
-            <!-- Item 6 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-3d">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-7.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Modelado 3D Especial</h4>
-                  <a href="assets/img/portfolio/portfolio-7.webp" data-gallery="portfolio-gallery" class="glightbox" title="Modelado 3D Especial"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-            
-            <!-- Item 7 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-exclusivos">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-8.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Trofeo Corporativo</h4>
-                  <a href="assets/img/portfolio/portfolio-8.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Corporativo"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-            
-            <!-- Item 8 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-catalogo">
-              <div class="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Trofeo Catálogo C</h4>
-                  <a href="assets/img/portfolio/portfolio-10.webp" data-gallery="portfolio-gallery" class="glightbox" title="Trofeo Catálogo C"><i class="bi bi-zoom-in"></i></a>
-                </div>
-              </div>
-            </div><!-- End Item -->
-
-          </div><!-- End Portfolio Container -->
-
+    </div>
+  </nav>
+  <section class="hero-section" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0;">
+    <div class="container">
+      <h1 class="hero-title serif" style="color: var(--gold-primary);">Nuestro Portafolio</h1>
+      <p class="hero-subtitle mt-3 mx-auto text-white" style="max-width: 600px;">Explora algunas de nuestras creaciones recientes. Verdadera artesanía 3D y diseño premium.</p>
+    </div>
+  </section>
+  <section class="portfolio-section" style="padding-top: 0;">
+    <div class="container text-center">
+      <div class="portfolio-grid mt-4">
+        <div class="portfolio-item"><img src="assets/img/marathon_medals.png" alt="Marathon"></div>
+        <div class="portfolio-item"><img src="assets/img/kids_basketball_trophy.png" alt="Basketball"></div>
+        <div class="portfolio-item"><img src="assets/img/esports_trophy.png" alt="E-Sports"></div>
+        <div class="portfolio-item"><img src="assets/img/collab_trophy.png" alt="Collab"></div>
+        <div class="portfolio-item"><img src="assets/img/clients_trophy.png" alt="Clients"></div>
+        <div class="portfolio-item"><img src="assets/img/products_trophy.png" alt="Products"></div>
+      </div>
+    </div>
+  </section>
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 pe-lg-5">
+          <img src="assets/img/logo.png" alt="Trofeón Logo" style="height: 35px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+          <p class="text-muted" style="font-size: 0.9rem;">Elevando los estándares del reconocimiento corporativo a través de la exclusividad, la tecnología de vanguardia y la impresión 3D.</p>
         </div>
-
+        <div class="col-lg-2 offset-lg-2 footer-col">
+          <h5>Sede Central</h5>
+          <ul>
+            <li><a href="#"><i class="bi bi-geo-alt"></i> Dos Hermanas, Sevilla</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 footer-col">
+          <h5>Servicios</h5>
+          <ul>
+            <li><a href="catalogo.html">Catálogo Abierto</a></li>
+            <li><a href="presupuesto.html">Diseño Exclusivo</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 footer-col">
+          <h5>Políticas</h5>
+          <ul>
+            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="contacto.html">Contacto Directo</a></li>
+          </ul>
+        </div>
       </div>
-    </section>
-
-  </main>
-
-  <footer id="footer" class="footer" style="--background-color: #000; --default-color:#fff;">
-    <div class="container copyright text-center py-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Trofeón</strong> <span>Todos los derechos reservados</span></p>
+      <div class="footer-bottom d-flex justify-content-between align-items-center">
+        <p class="mb-0">&copy; 2026 Trofeón. Todos los derechos reservados.</p>
+        <a href="#" class="text-muted text-decoration-none" style="font-size: 1.5rem;"><i class="bi bi-arrow-up-circle"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <!-- <div id="preloader"></div>  (Optional, removed for better portfolio loading experience initially) -->
-
-  <!-- Vendor JS Files -->
+  <!-- Bootstrap JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
